@@ -3,6 +3,8 @@ import Search from './search';
 import { useDebounce } from 'react-use';
 import MovieCard from './MovieCard';
 import Spinner from './Spinner';
+import { NavLink, Route, Routes } from 'react-router-dom';
+
 
 const API_BASE_URL = 'https://api.jikan.moe/v4/anime' 
 
@@ -49,8 +51,16 @@ const App = () => {
       <h1 className=' ml-30 text-4xl font-bold text-white basis-2/3'>Anime hub</h1>
       <Search search={search} setSearch={setSearch}/>
       </header>
-
+      <div className='flex flex-col-3 gap-2 p-5 bg-cyan-700'>
       <h2 className='text-xl font-bold ml-6'>All Animes</h2>
+      <NavLink to='/About'className={(({isActive}) => {
+        return isActive? 'text-primary-700' : ''
+      })}><h2 className='text-xl font-bold ml-6'>About</h2></NavLink>
+      <NavLink to='/contact'className={(({isActive}) => {
+        return isActive? 'text-primary-700' : ''
+      })}><h2 className='text-xl font-bold ml-6'>Contact</h2></NavLink>
+
+      </div>
       {loading && <Spinner/> }
       <section className='mx-15'>
         <ul className="  grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
