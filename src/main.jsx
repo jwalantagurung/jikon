@@ -24,7 +24,7 @@ path:'/about',
 element:<About/>
 },
 {
-  path:'/Anime_details',
+  path:'/Anime_details/:id',
   element:<Anime_details/>
 }
 ])
